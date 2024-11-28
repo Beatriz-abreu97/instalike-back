@@ -1,39 +1,17 @@
 import express from "express";
+import routes from "./src/routes/postsRoutes.js";
 
+
+// Array de posts de exemplo, caso não haja dados no banco de dados
 const posts = [
-    {
-      descricao: "Uma foto teste",
-      imagem: "https://placecats.com/millie/300/150"
-    },
-    {
-      descricao: "Gato fazendo yoga",
-      imagem: "https://placekitten.com/200/300"
-    },
-    {
-      descricao: "Gatinho dormindo",
-      imagem: "https://placekitten.com/400/200"
-    },
-    {
-      descricao: "Gato curioso",
-      imagem: "https://placekitten.com/300/300"
-    },
-    {
-      descricao: "Gato brincando com um novelo de lã",
-      imagem: "https://placekitten.com/500/400"
-    },
-    {
-      descricao: "Gato olhando pela janela",
-      imagem: "https://placekitten.com/200/200"
-    }
-  ];
+  // ... seus posts
+];
 
+// Cria uma instância do servidor Express
 const app = express();
-app.use(express.json());
+routes(app)
 
+// Inicia o servidor na porta 3000
 app.listen(3000, () => {
-    console.log("servidor escutando...");
-});
-
-app.get("/posts", (req, res) => {
-    res.status(200).json(posts);
+  console.log("servidor escutando...");
 });
