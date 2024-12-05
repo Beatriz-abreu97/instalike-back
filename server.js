@@ -9,6 +9,7 @@ const posts = [
 
 // Cria uma instância do servidor Express
 const app = express();
+app.use(express.static("uploads"))
 routes(app)
 
 // Inicia o servidor na porta 3000
